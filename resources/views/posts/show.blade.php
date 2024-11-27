@@ -1,30 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post <?php echo $post; ?></title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
-     <script src="{{ asset('js/index.js') }}" defer></script>
-</head>
+@section('title', $post)
+@push('css')
+    <style>
+        body{
+            background-color: rgb(212, 212, 211);
+        }
+    </style>
+@endpush
 
-<body class="container">
-   
+
+
+
+@section('content')
     <section class="components">
         <div hidden>
             <h1>Show <?= $post ?></h1>
             <p>{{ $post }}</p>
         </div>
-       
+
         <div>
             <x-alert type="danger" class="mb-4">
                 <x-slot name="Info">
-                    Info alert 
+                    Info alert
                 </x-slot>
                 Danger
             </x-alert>
@@ -34,7 +32,7 @@
         <div>
             <x-alert2 type="warning" class="mb-4">
                 <x-slot name="Info">
-                    Info alert2 
+                    Info alert2
                 </x-slot>
                 Danger2
             </x-alert2>
@@ -51,8 +49,13 @@
             </x-button>
         </div>
     </section>
-   
+@endsection
 
-</body>
-
-</html>
+@push('css')
+    <style>
+        body{
+            color: rgb(0, 0, 0);
+        }
+    </style>
+    
+@endpush

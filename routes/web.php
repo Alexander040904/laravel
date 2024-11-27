@@ -26,7 +26,8 @@ Route::get('/example/{valor}', function(String $valor){
 // Rutas con contoladores 
 Route::get('/exampleContrpller/{valor}', [HomeController::class, 'index']);
 
-Route::get('/examplePostController/{post}', [PostController::class, 'index']);
+
+Route::get('/home/{post}', [PostController::class, 'home']);
 Route::get('/examplePostCreate/{post}', [PostController::class, 'postCreate']);
 
 //Ruta sin expresar el metodo 
