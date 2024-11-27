@@ -19,7 +19,7 @@
 
 
     {{-- Se puede poner el nombre que queramos--}}
-   @yield('content')
+   @yield('content', 'nada')
 
 
     <footer></footer>
