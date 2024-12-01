@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('category');
+            $table->timestamp('published_at');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

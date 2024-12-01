@@ -11,6 +11,13 @@ class Post extends Model
     //
     use HasFactory;
     protected $table = 'pots';
+
+    protected function casts(){
+        return [
+            'published_at' => 'datetime',
+            'is_active' => 'boolean'
+        ];
+    }
     protected function title():Attribute{
     /*     mutadores: set get :accesores */
         return Attribute::make(

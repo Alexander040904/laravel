@@ -38,8 +38,9 @@ Route::get('/prueba', function () {
  */
 
     /* traes mediante el id  */
-$post = Post::find(6);
-return $post;
+    $post = Post::find(1);
+    /* return  $post->published_at->format('d/m/Y'); */
+    dd($post->is_active);
 
 //Ocupa el filtro where
 /* 
