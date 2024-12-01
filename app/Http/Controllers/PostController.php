@@ -14,6 +14,7 @@ class PostController extends Controller
         return view('posts.show', compact('post'));
 
     }
+    
     public function postCreate($post){
         return "Create a character {$post}";
 

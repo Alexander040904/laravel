@@ -28,18 +28,18 @@ Route::get('/prueba', function () {
 
     /*     $post = new Post;
 
-    $post->title = 'Title 2';
+    $post->title = 'Title PiPOPpo';
     $post->content = 'Content 2';
     $post->category = 'Catagory 2';
 
     $post->save();
 
-    return $post; */
+    return $post;
+ */
 
-
-    /* traes mediante el id 
-$post = Post::find(1);
-return $post; */
+    /* traes mediante el id  */
+$post = Post::find(6);
+return $post;
 
 //Ocupa el filtro where
 /* 
@@ -66,8 +66,8 @@ return $post; */
     return $arr; */
 
     //Eliminar
-    $post = Post::find(1);
-    $post->delete();
+  /*   $post = Post::find(1);
+    $post->delete(); */
 
 });
 
