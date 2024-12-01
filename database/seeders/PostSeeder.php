@@ -14,7 +14,7 @@ class PostSeeder extends Seeder
     public function run(): void
     {
         //
-        $post = new Post();
+      /*   $post = new Post();
         $post->title ='La cueva negra';
         $post->content = 'Cd';
         $post->category = 'Comedy';
@@ -25,6 +25,8 @@ class PostSeeder extends Seeder
         $post->content = 'Cd';
         $post->category = 'Acction';
         $post->published_at = now();
-        $post->save();
+        $post->save(); */
+        Post::factory(10)->create();
+
     }
 }
