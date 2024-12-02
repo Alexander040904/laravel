@@ -82,13 +82,13 @@ Route::get('/exampleContrpller/{valor}', [HomeController::class, 'index']);
 Route::get('/home/{post}', [PostController::class, 'home']);
 Route::get('/examplePostCreate/{post}', [PostController::class, 'postCreate']);
 
-Route::get('/crud', [PostController::class, 'crud']);
-Route::get('/crud/read/{id}', [PostController::class, 'read']);
-Route::get('/crud/create', [PostController::class, 'create']);
-Route::post('/crud/create', [PostController::class, 'store']);
-Route::get('/crud/update/{id}', [PostController::class, 'edit']);
-Route::put('/crud/update/{post}', [PostController::class, 'update']);
-Route::delete('/crud/delete/{post}', [PostController::class, 'delete']);
+Route::get('/crud', [PostController::class, 'crud'])->name('crud.crud');
+Route::get('/crud/read/{id}', [PostController::class, 'read'])->name('crud.read');
+Route::get('/crud/create', [PostController::class, 'create'])->name('crud.create');
+Route::post('/crud/create', [PostController::class, 'store'])->name('crud.store');
+Route::get('/crud/update/{id}', [PostController::class, 'edit'])->name('crud.edit');
+Route::put('/crud/update/{post}', [PostController::class, 'update'])->name('crud.update');
+Route::delete('/crud/delete/{post}', [PostController::class, 'delete'])->name('crud.delete');
 
 
 

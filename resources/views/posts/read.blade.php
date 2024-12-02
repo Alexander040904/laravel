@@ -14,7 +14,7 @@
 
 
 @section('content')
-    <a href="/crud">Volver</a>
+    <a href="{{ route('crud.crud') }}">Volver</a>
     <h1>Titulo: {{$id->title}}</h1>
     <b>
         <b>Categoria</b>
@@ -24,13 +24,15 @@
     <b>{{$id->content}} </b>
 
     <b>
-        <a href="/crud/update/{{$id->id}}">Update</a>
+       
+        <a href=" {{ route('crud.edit', $id->id) }}">Update</a>
     </b>
     <b>
   
     </b>
 
-    <form action="/crud/delete/{{$id->id}}" method="POST">
+
+    <form action="{{ route('crud.delete', $id->id) }}" method="POST">
         @csrf
         @method("DELETE")
         <button type="submit">Delete</button>

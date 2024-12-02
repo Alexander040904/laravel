@@ -14,13 +14,15 @@
 
 @section('content')
     <h5>Create</h5>
-    <a href="/crud/create">Nuevo blog</a>
+   
+    <a href="{{route('crud.create')}}">Nuevo blog</a>
 
    <h5>Ver</h5>
    <ul>
     @foreach ($posts as $post)
        <li>
-            <a href="/crud/read/{{$post->id}}">
+       
+            <a href=" {{ route('crud.read', $post->id ) }}">
                 {{$post->title}}
             </a>
        </li>

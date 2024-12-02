@@ -14,13 +14,15 @@
 
 
 @section('content')
-    <a href="/crud">Volver</a>
+
+    <a href="{{ route('crud.crud') }}">Volver</a>
     <h1>Nuevo blog</h1>
   
 
    <x-formBlog>
         <x-slot name="api">
-            /crud/create
+           
+            {{ route('crud.store')}}
         </x-slot>
    
    </x-formBlog>

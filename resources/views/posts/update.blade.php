@@ -14,12 +14,13 @@
 
 
 @section('content')
-    <a href="/crud">Volver</a>
+    <a href="{{ route('crud.read', $post->id ) }}">Volver</a>
     <h1>Update blog {{$post->id}} </h1>
    
    <x-formBlog >
     <x-slot name="api">
-        /crud/update/{{$post->id}}
+        
+        {{ route('crud.update',$post->id) }}
     </x-slot>
     <x-slot name='met'>
         @method('PUT')
