@@ -82,13 +82,23 @@ Route::get('/exampleContrpller/{valor}', [HomeController::class, 'index']);
 Route::get('/home/{post}', [PostController::class, 'home']);
 Route::get('/examplePostCreate/{post}', [PostController::class, 'postCreate']);
 
-Route::get('/crud', [PostController::class, 'crud'])->name('crud.crud');
-Route::get('/crud/read/{id}', [PostController::class, 'read'])->name('crud.read');
+/* Route::get('/crud', [PostController::class, 'index'])->name('crud.index');
+Route::get('/crud/read/{id}', [PostController::class, 'show'])->name('crud.show');
 Route::get('/crud/create', [PostController::class, 'create'])->name('crud.create');
 Route::post('/crud/create', [PostController::class, 'store'])->name('crud.store');
 Route::get('/crud/update/{id}', [PostController::class, 'edit'])->name('crud.edit');
 Route::put('/crud/update/{post}', [PostController::class, 'update'])->name('crud.update');
-Route::delete('/crud/delete/{post}', [PostController::class, 'delete'])->name('crud.delete');
+Route::delete('/crud/delete/{post}', [PostController::class, 'destroy'])->name('crud.destroy'); */
+/* 
+Route::resource('articulos', PostController::class)->parameters(['articulos'=> 'post'])->names('crud'); */
+Route::resource('articulos', PostController::class)->names('crud');
+/* Route::apiResource('articulos', PostController::class)->names('crud'); */
+
+
+/* Route::resource('crud', PostController::class)->except(['index','destroy']);
+Route::resource('crud', PostController::class)->only(['index','create']); */
+
+
 
 
 

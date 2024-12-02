@@ -18,23 +18,23 @@ class PostController extends Controller
 
     }
     
-    public function crud(){
+    public function index(){
         //compact y ['post'=> $post] son lo mismo
         $posts = Post::orderBy('id','desc')->get();
    
         return view('posts.crud', compact('posts'));
 
     }
-    public function read($id){
+    public function show($post){
         //compact y ['post'=> $post] son lo mismo
-        $post = Post::find($id);
-        $id = $post;
+        $posts = Post::find($post);
+        $post = $posts;
      
-        return view('posts.read', compact('id'));
+        return view('posts.read', compact('post'));
 
     }
-    public function edit($id){
-        $post = Post::select(['id','title', 'category','content'])->where('id','=', $id)->first();
+    public function edit($post){
+        $post = Post::select(['id','title', 'category','content'])->where('id','=', $post)->first();
         
         return view('posts.update', compact('post'));
 
@@ -46,17 +46,18 @@ class PostController extends Controller
         $post->content = $request->content;
 
         $post->save();
-        return redirect('/crud/read/'.$post->id);
+        
+        return redirect(route('crud.show',$post->id));
        
 
     }
-    public function delete($post){
+    public function destroy($post){
         //compact y ['post'=> $post] son lo mismo
         $post = Post::find($post);
         $post->delete();
      
      
-        return redirect('/crud');
+        return redirect(route('crud.index'));
 
  }
  
@@ -76,7 +77,7 @@ class PostController extends Controller
         $post->content = $request->content;
 
         $post->save();
-        return redirect('/crud');
+        return redirect(route('crud.index'));
     }
     public function postCreate($post){
         return "Create a character {$post}";

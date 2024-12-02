@@ -14,7 +14,7 @@
 
 
 @section('content')
-    <a href="{{ route('crud.read', $post->id ) }}">Volver</a>
+    <a href="{{ route('crud.show', $post->id ) }}">Volver</a>
     <h1>Update blog {{$post->id}} </h1>
    
    <x-formBlog >

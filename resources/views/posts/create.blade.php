@@ -15,7 +15,7 @@
 
 @section('content')
 
-    <a href="{{ route('crud.crud') }}">Volver</a>
+    <a href="{{ route('crud.index') }}">Volver</a>
     <h1>Nuevo blog</h1>
   
 

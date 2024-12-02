@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $id->id)
+@section('title', $post->id)
 
 @push('css')
     <style>
@@ -14,25 +14,25 @@
 
 
 @section('content')
-    <a href="{{ route('crud.crud') }}">Volver</a>
-    <h1>Titulo: {{$id->title}}</h1>
+    <a href="{{ route('crud.index') }}">Volver</a>
+    <h1>Titulo: {{$post->title}}</h1>
     <b>
         <b>Categoria</b>
-        {{$id->category}}
+        {{$post->category}}
     </b>
 
-    <b>{{$id->content}} </b>
+    <b>{{$post->content}} </b>
 
     <b>
        
-        <a href=" {{ route('crud.edit', $id->id) }}">Update</a>
+        <a href=" {{ route('crud.edit', $post->id) }}">Update</a>
     </b>
     <b>
   
     </b>
 
 
-    <form action="{{ route('crud.delete', $id->id) }}" method="POST">
+    <form action="{{ route('crud.destroy', $post->id) }}" method="POST">
         @csrf
         @method("DELETE")
         <button type="submit">Delete</button>
