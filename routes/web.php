@@ -11,6 +11,7 @@ use function Pest\Laravel\post;
 Route::get('/', function () {
     return view('welcome');
 });
+
 */
 
 //Ruta normales de origen
@@ -80,6 +81,16 @@ Route::get('/exampleContrpller/{valor}', [HomeController::class, 'index']);
 
 Route::get('/home/{post}', [PostController::class, 'home']);
 Route::get('/examplePostCreate/{post}', [PostController::class, 'postCreate']);
+
+Route::get('/crud', [PostController::class, 'crud']);
+Route::get('/crud/read/{id}', [PostController::class, 'read']);
+Route::get('/crud/create', [PostController::class, 'create']);
+Route::post('/crud/create', [PostController::class, 'store']);
+Route::get('/crud/update/{id}', [PostController::class, 'edit']);
+Route::put('/crud/update/{post}', [PostController::class, 'update']);
+Route::delete('/crud/delete/{post}', [PostController::class, 'delete']);
+
+
 
 //Ruta sin expresar el metodo 
 Route::get('/', HomeController::class);

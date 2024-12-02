@@ -18,7 +18,7 @@
             <h1>Show <?= $post ?></h1>
             <p>{{ $post }}</p>
         </div>
-
+        
         <div>
             <x-alert type="danger" class="mb-4">
                 <x-slot name="Info">
