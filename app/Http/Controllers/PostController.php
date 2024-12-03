@@ -49,6 +49,14 @@ class PostController extends Controller
         $post->save();
         
          */
+        $request->validate(
+            [
+                'title' => 'required|min:4|max:255',
+                'slug'=> "required|unique:pots,slug,{$post->id}",
+                'category'=> 'required',
+                'content'=> 'required'
+            ]
+            );
         $post->update($request->all());
         return redirect(route('crud.show',$post->slug));
        
@@ -72,6 +80,15 @@ class PostController extends Controller
     }
     
     public function store(Request $request){
+
+        $request->validate(
+            [
+                'title' => 'required|min:4|max:255',
+                'slug'=> 'required|unique:pots',
+                'category'=> 'required',
+                'content'=> 'required'
+            ]
+            );
        
         Post::create($request->all());
 /*         $post->title = $request->title;

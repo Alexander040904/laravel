@@ -26,16 +26,16 @@
         @method('PUT')
     </x-slot>
     <x-slot name="title">
-        {{ $post->title }} {{-- Este es el objeto completo que puedes pasar --}}
+        {{ old ('title',$post->title) }} {{-- Este es el objeto completo que puedes pasar --}}
     </x-slot>
     <x-slot name="category">
-        {{ $post->category }} {{-- Este es el objeto completo que puedes pasar --}}
+        {{ old ('category', $post->category) }} {{-- Este es el objeto completo que puedes pasar --}}
     </x-slot>
     <x-slot name="slug">
-        {{ $post->slug }} {{-- Este es el objeto completo que puedes pasar --}}
+        {{  old ('slug',$post->slug) }} {{-- Este es el objeto completo que puedes pasar --}}
     </x-slot>
     <x-slot name="content">
-        {{ $post->content }} {{-- Este es el objeto completo que puedes pasar --}}
+        {{  old ('content',$post->content )}} {{-- Este es el objeto completo que puedes pasar --}}
     </x-slot>
     <x-slot name='button'>
         Actualizar
