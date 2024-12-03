@@ -41,13 +41,15 @@ class PostController extends Controller
     }
     public function update(Request $request, Post $post){
        
-        $post->title = $request->title;
+    /*     $post->title = $request->title;
         $post->slug = $request->slug;
         $post->category = $request->category;
         $post->content = $request->content;
 
         $post->save();
         
+         */
+        $post->update($request->all());
         return redirect(route('crud.show',$post->slug));
        
 
@@ -69,15 +71,15 @@ class PostController extends Controller
            return view('posts.create');
     }
     
-    public function store(Request $request,  Post $post){
+    public function store(Request $request){
        
-
-        $post->title = $request->title;
+        Post::create($request->all());
+/*         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->category = $request->category;
-        $post->content = $request->content;
+        $post->content = $request->content; */
 
-        $post->save();
+       /*  $post->save(); */
         return redirect(route('crud.index'));
     }
     public function postCreate($post){

@@ -29,6 +29,17 @@ class Post extends Model
         );
 
     }
+   /*  protected $fillable = [
+        'title',
+        'slug',
+        'category',
+        'content',
+        
+    ]; */
+    protected $guarded = [
+        'is_active',
+       
+    ];
     public function getRouteKeyName(){
         return "slug";
     }
