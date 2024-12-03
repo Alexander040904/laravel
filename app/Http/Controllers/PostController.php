@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Mail\PostCreatedMail;
 use App\Models\Post;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+
 
 use function Pest\Laravel\post;
 
@@ -74,13 +77,15 @@ class PostController extends Controller
             ]
             ); */
        
-        Post::create($request->all());
+        $post = Post::create($request->all());
 /*         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->category = $request->category;
         $post->content = $request->content; */
 
        /*  $post->save(); */
+    
+        Mail::to('prueba@gmail.com')->send(new PostCreatedMail($post));
         return redirect(route('crud.index'));
     }
     public function update(UpdatePostRequest $request, Post $post){
