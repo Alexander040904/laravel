@@ -22,7 +22,7 @@
     @foreach ($posts as $post)
        <li>
        
-            <a href=" {{ route('crud.show', $post->id ) }}">
+            <a href=" {{ route('crud.show',$post) }}">
                 {{$post->title}}
             </a>
        </li>

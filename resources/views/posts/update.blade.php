@@ -20,7 +20,7 @@
    <x-formBlog >
     <x-slot name="api">
         
-        {{ route('crud.update',$post->id) }}
+        {{ route('crud.update',$post) }}
     </x-slot>
     <x-slot name='met'>
         @method('PUT')
@@ -30,6 +30,9 @@
     </x-slot>
     <x-slot name="category">
         {{ $post->category }} {{-- Este es el objeto completo que puedes pasar --}}
+    </x-slot>
+    <x-slot name="slug">
+        {{ $post->slug }} {{-- Este es el objeto completo que puedes pasar --}}
     </x-slot>
     <x-slot name="content">
         {{ $post->content }} {{-- Este es el objeto completo que puedes pasar --}}

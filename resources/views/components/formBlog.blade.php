@@ -19,6 +19,10 @@
         <input type="text" name="category" value="{{ $category ?? '' }}">
     </label>
     <br>
+    <label for="slug">Slug; 
+        <input type="text" name="slug" value="{{ $slug ?? '' }}">
+    </label>
+    <br>
     
     <button type="submit">{{ $button ?? 'Crear' }}</button>
    

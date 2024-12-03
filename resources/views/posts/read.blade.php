@@ -25,14 +25,14 @@
 
     <b>
        
-        <a href=" {{ route('crud.edit', $post->id) }}">Update</a>
+        <a href=" {{ route('crud.edit', $post) }}">Update</a>
     </b>
     <b>
   
     </b>
 
 
-    <form action="{{ route('crud.destroy', $post->id) }}" method="POST">
+    <form action="{{ route('crud.destroy', $post) }}" method="POST">
         @csrf
         @method("DELETE")
         <button type="submit">Delete</button>

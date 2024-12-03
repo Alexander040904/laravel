@@ -91,7 +91,7 @@ Route::put('/crud/update/{post}', [PostController::class, 'update'])->name('crud
 Route::delete('/crud/delete/{post}', [PostController::class, 'destroy'])->name('crud.destroy'); */
 /* 
 Route::resource('articulos', PostController::class)->parameters(['articulos'=> 'post'])->names('crud'); */
-Route::resource('articulos', PostController::class)->names('crud');
+Route::resource('articulos', PostController::class)->parameters(['articulos'=> 'post'])->names('crud');
 /* Route::apiResource('articulos', PostController::class)->names('crud'); */
 
 

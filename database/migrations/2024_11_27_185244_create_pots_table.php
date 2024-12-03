@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pots', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug')->unique();
             $table->text('content');
             $table->string('category');
             $table->timestamp('published_at');

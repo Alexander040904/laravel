@@ -25,35 +25,36 @@ class PostController extends Controller
         return view('posts.crud', compact('posts'));
 
     }
-    public function show($post){
+    public function show(Post $post){
         //compact y ['post'=> $post] son lo mismo
-        $posts = Post::find($post);
-        $post = $posts;
+        /* $posts = Post::find($post); */
+   
      
         return view('posts.read', compact('post'));
 
     }
-    public function edit($post){
-        $post = Post::select(['id','title', 'category','content'])->where('id','=', $post)->first();
+    public function edit(Post $post){
+        //$post = Post::select(['id','title', 'category','content'])->where('id','=', $post)->first();
         
         return view('posts.update', compact('post'));
 
     }
-    public function update(Request $request, $post){
-        $post = POST::find($post);
+    public function update(Request $request, Post $post){
+       
         $post->title = $request->title;
+        $post->slug = $request->slug;
         $post->category = $request->category;
         $post->content = $request->content;
 
         $post->save();
         
-        return redirect(route('crud.show',$post->id));
+        return redirect(route('crud.show',$post->slug));
        
 
     }
-    public function destroy($post){
+    public function destroy(Post $post){
         //compact y ['post'=> $post] son lo mismo
-        $post = Post::find($post);
+     /*    $post = Post::find($post); */
         $post->delete();
      
      
@@ -68,11 +69,11 @@ class PostController extends Controller
            return view('posts.create');
     }
     
-    public function store(Request $request){
+    public function store(Request $request,  Post $post){
        
-        $post = new Post();
 
         $post->title = $request->title;
+        $post->slug = $request->slug;
         $post->category = $request->category;
         $post->content = $request->content;
 
