@@ -26,7 +26,7 @@ class PostSeeder extends Seeder
         $post->category = 'Acction';
         $post->published_at = now();
         $post->save(); */
-        Post::factory(10)->create();
+        Post::factory(100)->create();
 
     }
 }

@@ -24,12 +24,13 @@ class PostController extends Controller
 
     }
     public function index(){
-        //compact y ['post'=> $post] son lo mismo
-        $posts = Post::orderBy('id','desc')->get();
-   
+        // Usamos paginate() en lugar de get() para la paginación
+        $posts = Post::orderBy('id', 'desc')->paginate(10); // 10 es el número de posts por página
+        
+        // Pasamos los posts paginados a la vista
         return view('posts.crud', compact('posts'));
-
     }
+    
     public function show(Post $post){
         //compact y ['post'=> $post] son lo mismo
         /* $posts = Post::find($post); */
