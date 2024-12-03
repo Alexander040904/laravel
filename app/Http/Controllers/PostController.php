@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -17,7 +19,10 @@ class PostController extends Controller
         return view('posts.show', compact('post'));
 
     }
-    
+    public function postCreate($post){
+        return "Create a character {$post}";
+
+    }
     public function index(){
         //compact y ['post'=> $post] son lo mismo
         $posts = Post::orderBy('id','desc')->get();
@@ -39,29 +44,7 @@ class PostController extends Controller
         return view('posts.update', compact('post'));
 
     }
-    public function update(Request $request, Post $post){
-       
-    /*     $post->title = $request->title;
-        $post->slug = $request->slug;
-        $post->category = $request->category;
-        $post->content = $request->content;
-
-        $post->save();
-        
-         */
-        $request->validate(
-            [
-                'title' => 'required|min:4|max:255',
-                'slug'=> "required|unique:pots,slug,{$post->id}",
-                'category'=> 'required',
-                'content'=> 'required'
-            ]
-            );
-        $post->update($request->all());
-        return redirect(route('crud.show',$post->slug));
-       
-
-    }
+    
     public function destroy(Post $post){
         //compact y ['post'=> $post] son lo mismo
      /*    $post = Post::find($post); */
@@ -79,16 +62,16 @@ class PostController extends Controller
            return view('posts.create');
     }
     
-    public function store(Request $request){
+    public function store(StorePostRequest $request){
 
-        $request->validate(
+        /* $request->validate(
             [
                 'title' => 'required|min:4|max:255',
                 'slug'=> 'required|unique:pots',
                 'category'=> 'required',
                 'content'=> 'required'
             ]
-            );
+            ); */
        
         Post::create($request->all());
 /*         $post->title = $request->title;
@@ -99,8 +82,29 @@ class PostController extends Controller
        /*  $post->save(); */
         return redirect(route('crud.index'));
     }
-    public function postCreate($post){
-        return "Create a character {$post}";
-
-    }
+    public function update(UpdatePostRequest $request, Post $post){
+       
+        /*     $post->title = $request->title;
+            $post->slug = $request->slug;
+            $post->category = $request->category;
+            $post->content = $request->content;
+    
+            $post->save();
+            
+             */
+           /*  $request->validate(
+                [
+                    'title' => 'required|min:4|max:255',
+                    'slug'=> "required|unique:pots,slug,{$post->id}",
+                    'category'=> 'required',
+                    'content'=> 'required'
+                ]
+                ); */
+                
+            $post->update($request->all());
+            return redirect(route('crud.show',$post->slug));
+           
+    
+        }
+   
 }
