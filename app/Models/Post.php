@@ -10,7 +10,7 @@ class Post extends Model
 {
     //
     use HasFactory;
-    protected $table = 'pots';
+    protected $table = 'posts';
 
     protected function casts(){
         return [
@@ -34,14 +34,18 @@ class Post extends Model
         'slug',
         'category',
         'content',
-        
+
     ]; */
     protected $guarded = [
         'is_active',
-       
+
+
     ];
     public function getRouteKeyName(){
         return "slug";
+    }
+    public function comments(){
+        return $this->hasMany(Comment::class);
     }
 
 
