@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Por aprobar</h1>
-    <p>En proceso</p>
+<x-mail::message>
+# Por aprobar el mensaje
 
-    <a href=" {{ route('crud.show',$post) }}">
-        {{$post->title}}
-    </a>
-</body>
-</html>
+<x-mail::panel>
+Se creado nuevo post
+</x-mail::panel>
+<x-mail::button url=" {{ route('crud.show', $post) }}">
+{{config('app.name')}}
+</x-mail::button>
+</x-mail::message>

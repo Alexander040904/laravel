@@ -85,7 +85,7 @@ class PostController extends Controller
 
        /*  $post->save(); */
     
-        Mail::to('prueba@gmail.com')->send(new PostCreatedMail($post));
+        Mail::to('jonathanalexanderramirezortega@gmail.com')->send(new PostCreatedMail($post));
         return redirect(route('crud.index'));
     }
     public function update(UpdatePostRequest $request, Post $post){
