@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Models\Phone;
 use App\Models\Post;
+use App\Models\User;
 
 use function Pest\Laravel\post;
 
@@ -18,6 +20,24 @@ Route::get('/', function () {
 Route::get('/post/{post}', function ($post) {
     #return view('welcome');
     return "hola {$post}";
+});
+
+Route::get('relaciones', function () {
+  /*   User::create([
+        'name'=>'Jona',
+        'email'=>'jja@gmail.com',
+        'password'=>bcrypt('12345678')
+    ]); */
+/* 
+    Phone::create([
+        'number'=>'1234567',
+        'user_id'=>1,
+    ]); */
+    /* $user = User::where('id',1)->with('phone')->first(); */
+    
+    $phone = Phone::find(1);
+    return $phone->user;
+    
 });
 
 Route::get('/example/{valor}', function (string $valor) {
